@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import SectionItem from "./components/SectionItem";
 
 function App() {

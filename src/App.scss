@@ -1,0 +1,62 @@
+
+.ql-picker-options {
+  position: static !important;
+  display: flex !important;
+  border: none !important;
+  box-shadow: none !important;
+  width: auto;
+  height: auto;
+}
+
+.ql-picker-label {
+  display: none !important;
+}
+
+.ql-snow .ql-color-picker, .ql-snow .ql-icon-picker {
+  width: auto !important;
+  height: auto !important;
+  display: flex;
+}
+
+.ql-toolbar.ql-snow {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom: none !important;
+}
+
+.ql-container.ql-snow {
+  height: 248px !important;
+  border-bottom-left-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+}
+
+.quill-hashtag {
+  background: #F5F4F4;
+  border-radius: 100px;
+  padding: 2px 8px;
+}
+
+.ql-editor {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.can_edit {
+
+}
+
+.no_edit {
+  border: 1px solid #F5F4F4;
+  border-radius: 8px;
+  transition: .25s;
+  box-shadow: 0 4px 12px transparent;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(21, 21, 21, 0.08);
+  }
+
+  & .ql-container.ql-snow {
+    border: none !important;
+  }
+}
