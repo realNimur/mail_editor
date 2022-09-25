@@ -1,0 +1,39 @@
+.section_item {
+  width: 100%;
+  max-width: 1184px;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+
+}
+
+.section_left {
+  width: 100%;
+  max-width: 928px;
+  border: 1px solid #F5F4F4;
+  border-radius: 8px;
+  transition: .25s;
+  box-shadow: 0 4px 12px transparent;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(21, 21, 21, 0.08);
+  }
+
+}
+
+.section_text {
+  width: 100%;
+  max-width: 643px;
+  font-weight: 500;
+  color: #151515
+}
+
+.section_buttons {
+  width: 100%;
+  max-width: 172px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}

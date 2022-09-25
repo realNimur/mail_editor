@@ -1,0 +1,16 @@
+.save_button {
+  border: none;
+  padding: 12px 16px;
+  background: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(21, 21, 21, 0.08);
+  border-radius: 56px;
+  cursor: pointer;
+  transition: .25s;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    color: #7D70DD;
+  }
+}

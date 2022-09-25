@@ -1,0 +1,19 @@
+.tab_title {
+  font-weight: 500;
+  color: #151515;
+  transition: .25s;
+  font-size: 16px;
+  padding: 12px 16px;
+  border-bottom: 1px solid transparent;
+  cursor: pointer;
+  display: inline-block;
+
+  &.active {
+    color: #7D70DD;
+    border-bottom-color: #7D70DD;
+  }
+
+  &:hover {
+    color: #7D70DD;
+  }
+}
