@@ -1,0 +1,22 @@
+.wrapper {
+  display: flex;
+}
+
+.button {
+  border: none;
+  outline: none !important;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(21, 21, 21, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+  cursor: pointer;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

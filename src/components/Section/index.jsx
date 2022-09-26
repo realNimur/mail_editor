@@ -2,7 +2,7 @@ import React from "react";
 import SectionItem from "../SectionItem";
 import AddButton from "../AddButton";
 
-const Section = ({ sectionList, setSectionList }) => {
+const Section = ({ sectionList, setSectionList, upInOrder, downInOrder }) => {
   return (
     <div>
       <div>
@@ -18,10 +18,8 @@ const Section = ({ sectionList, setSectionList }) => {
           };
 
           const setApprove = () => {
-            console.log("123");
             const newState = [...sectionList];
             newState[currentElementId].isApprove = true;
-            console.log(currentElementId);
             setSectionList(newState);
           };
 
@@ -33,6 +31,8 @@ const Section = ({ sectionList, setSectionList }) => {
               isApprove={item.isApprove}
               setInfoText={setInfoText}
               setApprove={setApprove}
+              upInOrder={upInOrder}
+              downInOrder={downInOrder}
             />
           );
         })}

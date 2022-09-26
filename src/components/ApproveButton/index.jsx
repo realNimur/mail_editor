@@ -1,12 +1,13 @@
 import React from "react";
 import styles from "./styles.module.scss";
 
-const ApproveButton = ({ isApprove, setApprove }) => {
+const ApproveButton = ({ isApprove, setApprove, ...props }) => {
   return (
     <button
       type={"button"}
       className={styles.approve_button}
       onClick={() => setApprove(true)}
+      {...props}
     >
       <span>
         <svg

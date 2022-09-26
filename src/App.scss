@@ -45,10 +45,13 @@
 
       .categories {
         margin-bottom: 5px;
+        display: flex;
 
         .category {
           margin-right: 16px;
           color: #ffff;
+          padding: 2px 8px;
+          background-color: #7d70dd;
           font-size: 14px;
           border-radius: 100px;
 
@@ -93,7 +96,7 @@
 
 .ql-container.ql-snow {
   height: 100% !important;
-  min-height: 110px !important;
+  min-height: 180px !important;
   border-bottom-left-radius: 8px !important;
   border-bottom-right-radius: 8px !important;
 }

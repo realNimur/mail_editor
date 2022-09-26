@@ -5,8 +5,17 @@ import SaveButton from "../SaveButton";
 import "react-quill/dist/quill.snow.css";
 import styles from "./styles.module.scss";
 import Editor from "../Editor";
+import OrderButtons from "../OrderButtons/OrderButtons";
 
-const SectionItem = ({ id, infoText, setInfoText, isApprove, setApprove }) => {
+const SectionItem = ({
+  id,
+  infoText,
+  setInfoText,
+  isApprove,
+  setApprove,
+  upInOrder,
+  downInOrder,
+}) => {
   const [isEditMode, setEditMode] = useState(false);
 
   return (
@@ -26,7 +35,16 @@ const SectionItem = ({ id, infoText, setInfoText, isApprove, setApprove }) => {
               style={{ marginBottom: " 16px" }}
               onClick={() => setEditMode(true)}
             />
-            <ApproveButton isApprove={isApprove} setApprove={setApprove} />
+            <ApproveButton
+              isApprove={isApprove}
+              setApprove={setApprove}
+              style={{ marginBottom: " 16px" }}
+            />
+            <OrderButtons
+              id={id}
+              upInOrder={upInOrder}
+              downInOrder={downInOrder}
+            />
           </>
         )}
       </div>

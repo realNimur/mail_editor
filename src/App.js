@@ -29,6 +29,38 @@ function App() {
     alert(JSON.stringify(sectionList));
   };
 
+  const upInOrder = (id) => {
+    const from = sectionList.findIndex((item) => item.id === id);
+    const to = from + 1;
+    if (to === sectionList.length) return;
+    const array = [...sectionList];
+    const target = array[from];
+
+    for (let k = from; k !== to; k += 1) {
+      array[k] = array[k + 1];
+    }
+
+    array[to] = target;
+
+    setSectionList(array);
+  };
+
+  const downInOrder = (id) => {
+    const from = sectionList.findIndex((item) => item.id === id);
+    const to = from - 1;
+    if (from === 0) return;
+    const array = [...sectionList];
+    const target = array[from];
+
+    for (let k = from; k !== to; k += -1) {
+      array[k] = array[k - 1];
+    }
+
+    array[to] = target;
+
+    setSectionList(array);
+  };
+
   return (
     <div className="app">
       <NavigationButton />
@@ -37,7 +69,12 @@ function App() {
           <Header sendData={sendData} />
           <Tabs />
         </div>
-        <Section sectionList={sectionList} setSectionList={setSectionList} />
+        <Section
+          sectionList={sectionList}
+          setSectionList={setSectionList}
+          upInOrder={upInOrder}
+          downInOrder={downInOrder}
+        />
       </div>
     </div>
   );
