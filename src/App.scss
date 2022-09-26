@@ -1,3 +1,69 @@
+.app {
+  padding-top: 30px;
+  max-width: 1408px;
+  padding-left: 18%;
+  margin: 0 auto;
+
+  &__right {
+    width: 100%;
+    max-width: 1152px;
+  }
+}
+
+.right {
+  &-header {
+    &__buttons {
+      display: flex;
+      margin-bottom: 16px;
+    }
+
+    &__info {
+      color: #151515;
+
+      .title {
+        font-size: 24px;
+        margin-bottom: 8px;
+      }
+
+      .recipient {
+        display: flex;
+        margin-bottom: 8px;
+
+        &__name {
+          margin-right: 16px;
+        }
+
+        &__value {
+          color: #6152d6;
+          margin-right: 16px;
+        }
+
+        &__date {
+          color: #bdbdbd;
+        }
+      }
+
+      .categories {
+        margin-bottom: 5px;
+
+        .category {
+          margin-right: 16px;
+          color: #ffff;
+          font-size: 14px;
+          border-radius: 100px;
+
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.quill {
+  flex-grow: 1;
+}
 
 .ql-picker-options {
   position: static !important;
@@ -12,7 +78,8 @@
   display: none !important;
 }
 
-.ql-snow .ql-color-picker, .ql-snow .ql-icon-picker {
+.ql-snow .ql-color-picker,
+.ql-snow .ql-icon-picker {
   width: auto !important;
   height: auto !important;
   display: flex;
@@ -25,13 +92,14 @@
 }
 
 .ql-container.ql-snow {
-  height: 248px !important;
+  height: 100% !important;
+  min-height: 110px !important;
   border-bottom-left-radius: 8px !important;
   border-bottom-right-radius: 8px !important;
 }
 
 .quill-hashtag {
-  background: #F5F4F4;
+  background: #f5f4f4;
   border-radius: 100px;
   padding: 2px 8px;
 }
@@ -43,13 +111,12 @@
 }
 
 .can_edit {
-
 }
 
 .no_edit {
-  border: 1px solid #F5F4F4;
+  border: 1px solid #f5f4f4;
   border-radius: 8px;
-  transition: .25s;
+  transition: 0.25s;
   box-shadow: 0 4px 12px transparent;
 
   &:hover {

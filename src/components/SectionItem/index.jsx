@@ -6,13 +6,13 @@ import "react-quill/dist/quill.snow.css";
 import styles from "./styles.module.scss";
 import Editor from "../Editor";
 
-const SectionItem = () => {
+const SectionItem = ({ id, infoText, setInfoText, isApprove, setApprove }) => {
   const [isEditMode, setEditMode] = useState(false);
-  const [infoText, setInfoText] = useState("Настоящая");
 
   return (
     <div className={styles.section_item}>
       <Editor
+        id={id}
         infoText={infoText}
         setInfoText={setInfoText}
         isEditMode={isEditMode}
@@ -26,7 +26,7 @@ const SectionItem = () => {
               style={{ marginBottom: " 16px" }}
               onClick={() => setEditMode(true)}
             />
-            <ApproveButton />
+            <ApproveButton isApprove={isApprove} setApprove={setApprove} />
           </>
         )}
       </div>

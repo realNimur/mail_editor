@@ -1,10 +1,17 @@
 import React from "react";
 import styles from "./styles.module.scss";
 
-const TabItem = () => {
+const TabItem = ({ version, id, isActiveTab, setActiveTabId }) => {
   return (
     <div>
-      <p className={styles.tab_title}>Версии 7654321</p>
+      <p
+        className={`${styles.tab_title} ${isActiveTab ? styles.active : ""}`}
+        onClick={() => {
+          setActiveTabId(id);
+        }}
+      >
+        Версия {version}
+      </p>
     </div>
   );
 };

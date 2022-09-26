@@ -1,16 +1,14 @@
 .section_item {
   width: 100%;
   max-width: 1184px;
-  padding: 16px;
+  margin-bottom: 16px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-start;
-
+  align-items: stretch;
 }
 
 .section_left {
-
 }
 
 .text_editor {
@@ -18,22 +16,26 @@
   align-items: stretch;
   justify-content: space-between;
   flex-grow: 1;
+  max-width: 928px;
 }
 
 .quill {
   width: 100%;
-  max-width: 656px;
+  max-width: 657px;
+  display: flex;
+  flex-direction: column;
 }
 
 .section_text {
   width: 100%;
   max-width: 643px;
   font-weight: 500;
-  color: #151515
+  color: #151515;
 }
 
 .section_buttons {
   width: 100%;
+  margin-left: 16px;
   max-width: 172px;
   display: flex;
   flex-direction: column;
@@ -41,11 +43,12 @@
 }
 
 .editor_variables {
-  background: #FAF9F9;
+  background: #faf9f9;
   border-radius: 8px;
   padding: 16px;
   width: 100%;
   max-width: 221px;
+  margin-left: 16px;
 
   &_text {
     color: #151515;
@@ -56,16 +59,16 @@
   & .variables {
     display: flex;
     flex-direction: column;
-    align-items: flex-start
+    align-items: flex-start;
   }
 
   & .variable {
-    background: #F5F4F4;
-    border:none;
+    background: #f5f4f4;
+    border: none;
     cursor: pointer;
     border-radius: 100px;
     padding: 5px 8px;
-    color: #74CDE0;
+    color: #74cde0;
     margin-bottom: 10px;
   }
 }

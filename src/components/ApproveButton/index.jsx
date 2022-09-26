@@ -1,9 +1,13 @@
 import React from "react";
 import styles from "./styles.module.scss";
 
-const ApproveButton = () => {
+const ApproveButton = ({ isApprove, setApprove }) => {
   return (
-    <button type={"button"} className={styles.approve_button}>
+    <button
+      type={"button"}
+      className={styles.approve_button}
+      onClick={() => setApprove(true)}
+    >
       <span>
         <svg
           className={styles.chevron}
@@ -19,7 +23,7 @@ const ApproveButton = () => {
           />
         </svg>
       </span>
-      <span className={styles.text_button}>Согласовать</span>
+      {!isApprove && <span className={styles.text_button}>Согласовать</span>}
     </button>
   );
 };

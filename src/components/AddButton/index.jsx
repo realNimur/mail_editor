@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "./styles.module.scss";
 
-const AddButton = () => {
+const AddButton = ({ handleClick }) => {
   return (
-    <div>
-      <button className={styles.button} type={"button"}>
+    <div className={styles.wrapper}>
+      <button className={styles.button} type={"button"} onClick={handleClick}>
         <svg
           className={styles.plus}
           width="24"

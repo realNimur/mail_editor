@@ -1,24 +1,25 @@
 .approve_button {
   border: none;
+  outline: none;
   padding: 13px;
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0 4px 12px rgba(21, 21, 21, 0.08);
   border-radius: 56px;
   cursor: pointer;
-  transition: .25s;
+  transition: 0.25s;
   font-weight: 500;
   display: flex;
   align-items: center;
 
   &:hover {
-    color: #6FCF97;
+    color: #6fcf97;
 
     .chevron {
-      fill: #6FCF97;
+      fill: #6fcf97;
     }
   }
 }
 
-.text_button{
+.text_button {
   margin-left: 10.5px;
 }

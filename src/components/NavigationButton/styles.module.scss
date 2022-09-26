@@ -1,8 +1,12 @@
 .wrapper {
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0 4px 12px rgba(21, 21, 21, 0.08);
   border-radius: 8px;
   display: inline-block;
+  position: fixed;
+  bottom: 5%;
+  left: 2%;
+  z-index: 1;
 }
 
 .hidden_menu {
@@ -20,19 +24,19 @@
 
 .icon_left {
   svg {
-    transition: .25s;
+    transition: 0.25s;
   }
 }
 
 .text_button {
   font-weight: 500;
   margin: 0 8px;
-  transition: .25s;
+  transition: 0.25s;
 }
 
 .icon_chevron {
   svg {
-    transition: .25s;
+    transition: 0.25s;
   }
 }
 
@@ -46,17 +50,17 @@
   width: 100%;
 
   &:hover {
-    color: #7D70DD;
+    color: #7d70dd;
 
     .icon_left {
       svg {
-        fill: #7D70DD;
+        fill: #7d70dd;
       }
     }
 
     .icon_chevron {
       svg {
-        fill: #7D70DD;
+        fill: #7d70dd;
       }
     }
   }

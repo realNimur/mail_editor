@@ -23,22 +23,6 @@ Quill.register({
   "formats/hashtag": QuillHashtag,
 });
 
-const modules = {
-  toolbar: {
-    container: "#toolbar",
-  },
-};
-
-const formats = [
-  "header",
-  "bold",
-  "italic",
-  "underline",
-  "indent",
-  "align",
-  "hashtag",
-];
-
 const VariableItem = ({ title, addVariable, color }) => {
   const handleClick = () => addVariable(title, color);
 
@@ -58,8 +42,9 @@ const color1 = getRandomColor();
 const color2 = getRandomColor();
 const color3 = getRandomColor();
 
-const Editor = ({ infoText, setInfoText, isEditMode }) => {
+const Editor = ({ id, infoText, setInfoText, isEditMode }) => {
   const refEditor = useRef(null);
+  const unId = `toolbar-${id}`;
 
   const addVariable = (text, color = "#000") => {
     if (refEditor.current?.selection?.index > -1) {
@@ -80,23 +65,38 @@ const Editor = ({ infoText, setInfoText, isEditMode }) => {
       >
         <div className={styles.quill}>
           <div
-            id="toolbar"
+            id={unId}
             style={{
-              display: isEditMode ? "block" : "none",
+              display: isEditMode ? "flex" : "none",
+              alignItems: "center",
             }}
           >
             <button className="ql-bold" />
             <button className="ql-italic" />
             <button className="ql-underline" />
+            <button style={{ color: "rgba(0,0,0,.2)" }}> |</button>
             <select className="ql-align ql-expanded" />
           </div>
           <ReactQuill
+            readOnly={!isEditMode}
             ref={refEditor}
             theme="snow"
             value={infoText}
             onChange={setInfoText}
-            modules={modules}
-            formats={formats}
+            modules={{
+              toolbar: {
+                container: `#${unId}`,
+              },
+            }}
+            formats={[
+              "header",
+              "bold",
+              "italic",
+              "underline",
+              "indent",
+              "align",
+              "hashtag",
+            ]}
           />
         </div>
       </div>
