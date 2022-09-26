@@ -1,0 +1,31 @@
+.download_button {
+  color: #7D70DD;
+  display: flex;
+  align-items: center;
+  border: 1px solid #7D70DD;
+  border-radius: 20px;
+  outline: none;
+  background-color: #fff;
+  padding: 12px 32px;
+  transition: .25s;
+  cursor: pointer;
+  font-size: 16px;
+
+  svg {
+    margin-right: 9px;
+  }
+
+  path {
+    transition: .25s;
+  }
+
+  &:hover {
+    color: #fff;
+    background-color: #7D70DD;
+
+    & path {
+      stroke: #fff;
+    }
+  }
+
+}

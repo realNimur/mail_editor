@@ -16,6 +16,16 @@
   margin-right: 16px;
   cursor: pointer;
 
+  path {
+    transition: .25s;
+  }
+
+  &:hover {
+    &  path {
+      stroke: #7D70DD;
+    }
+  }
+
   &:last-child {
     margin-right: 0;
   }
