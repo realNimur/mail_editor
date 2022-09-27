@@ -1,8 +1,20 @@
 import React from "react";
 import SectionItem from "../SectionItem";
-import AddButton from "../AddButton";
+import Footer from "../Footer";
 
 const Section = ({ sectionList, setSectionList, upInOrder, downInOrder }) => {
+  const setInfoText = (text, currentElementId) => {
+    const newState = [...sectionList];
+    newState[currentElementId].text = text;
+    setSectionList(newState);
+  };
+
+  const setApprove = (currentElementId) => {
+    const newState = [...sectionList];
+    newState[currentElementId].isApprove = true;
+    setSectionList(newState);
+  };
+
   return (
     <div>
       <div>
@@ -11,44 +23,23 @@ const Section = ({ sectionList, setSectionList, upInOrder, downInOrder }) => {
             (section) => section.id === item.id
           );
 
-          const setInfoText = (text) => {
-            const newState = [...sectionList];
-            newState[currentElementId].text = text;
-            setSectionList(newState);
-          };
-
-          const setApprove = () => {
-            const newState = [...sectionList];
-            newState[currentElementId].isApprove = true;
-            setSectionList(newState);
-          };
-
           return (
             <SectionItem
               id={item.id}
               key={item.id}
+              type={item.type}
+              file={item.file}
               infoText={item.text}
               isApprove={item.isApprove}
-              setInfoText={setInfoText}
-              setApprove={setApprove}
+              setInfoText={(text) => setInfoText(text, currentElementId)}
+              setApprove={() => setApprove(currentElementId)}
               upInOrder={upInOrder}
               downInOrder={downInOrder}
             />
           );
         })}
       </div>
-      <AddButton
-        handleClick={() => {
-          setSectionList((prevState) => [
-            ...prevState,
-            {
-              id: prevState.length + 1,
-              text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-              isApprove: false,
-            },
-          ]);
-        }}
-      />
+      <Footer setSectionList={setSectionList} />
     </div>
   );
 };

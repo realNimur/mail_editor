@@ -1,15 +1,11 @@
 .wrapper {
-  padding: 32px 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .button {
-  width: 40px;
-  height: 40px;
   background-color: #e2deff;
-  border-radius: 50%;
   transition: 0.25s;
   cursor: pointer;
   border: none;
@@ -17,13 +13,33 @@
   align-items: center;
   justify-content: center;
 
+  path {
+    transition: .25s;
+  }
+
+  .text {
+    font-weight: 500;
+    font-size: 16px;
+    margin: 0 0 0 8px;
+    transition: .25s;
+    color: #7D70DD;
+  }
+
   &:hover {
     background-color: #7d70dd;
 
     & .plus {
+      width: 24px;
+      height: 24px;
+
       path {
         stroke: #fff;
       }
+    }
+
+    .text {
+      transition: .25s;
+      color: #FFF;
     }
   }
 }

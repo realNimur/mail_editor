@@ -72,3 +72,31 @@
     margin-bottom: 10px;
   }
 }
+
+.file {
+  display: inline-block;
+
+  .header {
+    width: 152px;
+    height: 112px;
+    background: #F5F4F4;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+
+    .text {
+      font-size: 24px;
+      font-weight: 700;
+      color: #7D70DD;
+    }
+  }
+
+  .name {
+    color: #151515;
+    line-height: 22px;
+
+    width: 152px;
+  }
+}
