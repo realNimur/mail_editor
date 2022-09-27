@@ -1,15 +1,10 @@
 import React from "react";
-import CustomButton from "../CustomButton";
-import DownloadButton from "../DownloadButton";
+import HeaderButtons from "../HeaderButtons";
 
 const Header = ({ sendData }) => {
   return (
     <div>
-      <div className="right-header__buttons">
-        <CustomButton text={"Предпросмотр"} />
-        <CustomButton text={"Сохранить"} onClick={sendData} />
-        <DownloadButton />
-      </div>
+      <HeaderButtons handleSave={sendData} />
       <div className="right-header__info">
         <p className="title">Бланк банковской гарантии №1234567</p>
         <div className="recipient">

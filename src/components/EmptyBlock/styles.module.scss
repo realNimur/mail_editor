@@ -1,0 +1,21 @@
+.empty_block {
+  width: 100%;
+  max-width: 1154px;
+  padding: 110px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #f5f4f4;
+  border-radius: 8px;
+
+  .plus {
+    margin-right: 8px;
+    color: #bdbdbd;
+  }
+
+  .text {
+    font-size: 16px;
+    font-weight: 500;
+    color: #bdbdbd;
+  }
+}

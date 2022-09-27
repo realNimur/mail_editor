@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import styles from "../SectionItem/styles.module.scss";
 import ReactQuill, { Quill } from "react-quill";
-import { getRandomColor } from "../../helpers/helpers";
 
 const Embed = Quill.import("blots/embed");
 
@@ -37,10 +36,6 @@ const VariableItem = ({ title, addVariable, color }) => {
     </button>
   );
 };
-
-const color1 = getRandomColor();
-const color2 = getRandomColor();
-const color3 = getRandomColor();
 
 const Editor = ({ id, infoText, setInfoText, isEditMode }) => {
   const refEditor = useRef(null);
@@ -99,31 +94,31 @@ const Editor = ({ id, infoText, setInfoText, isEditMode }) => {
             ]}
           />
         </div>
-      </div>
-      {isEditMode && (
-        <div className={styles.editor_variables}>
-          <p className={styles.editor_variables_text}>
-            Кликните, чтобы вставить переменную в текст
-          </p>
-          <div className={styles.variables}>
-            <VariableItem
-              addVariable={addVariable}
-              title={"beneficiary.inn"}
-              color={color1}
-            />
-            <VariableItem
-              addVariable={addVariable}
-              title={"order.sumt"}
-              color={color2}
-            />
-            <VariableItem
-              addVariable={addVariable}
-              title={"principal.inn"}
-              color={color3}
-            />
+        {isEditMode && (
+          <div className={styles.editor_variables}>
+            <p className={styles.editor_variables_text}>
+              Кликните, чтобы вставить переменную в текст
+            </p>
+            <div className={styles.variables}>
+              <VariableItem
+                addVariable={addVariable}
+                title={"beneficiary.inn"}
+                color={"#74CDE0"}
+              />
+              <VariableItem
+                addVariable={addVariable}
+                title={"order.sumt"}
+                color={"#A0DD70"}
+              />
+              <VariableItem
+                addVariable={addVariable}
+                title={"principal.inn"}
+                color={"#D470DD"}
+              />
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </>
   );
 };

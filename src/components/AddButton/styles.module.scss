@@ -14,15 +14,15 @@
   justify-content: center;
 
   path {
-    transition: .25s;
+    transition: 0.25s;
   }
 
   .text {
     font-weight: 500;
     font-size: 16px;
     margin: 0 0 0 8px;
-    transition: .25s;
-    color: #7D70DD;
+    transition: 0.25s;
+    color: #7d70dd;
   }
 
   &:hover {
@@ -38,8 +38,8 @@
     }
 
     .text {
-      transition: .25s;
-      color: #FFF;
+      transition: 0.25s;
+      color: #fff;
     }
   }
 }

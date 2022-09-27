@@ -17,12 +17,12 @@
   cursor: pointer;
 
   path {
-    transition: .25s;
+    transition: 0.25s;
   }
 
   &:hover {
-    &  path {
-      stroke: #7D70DD;
+    & path {
+      stroke: #7d70dd;
     }
   }
 

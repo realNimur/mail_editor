@@ -32,11 +32,6 @@ const Footer = ({ setSectionList }) => {
         ref={fileInput}
         onChange={(e) => {
           if (e.target?.files[0]) {
-            console.log({
-              type: "document",
-              isApprove: false,
-              file: e.target?.files[0],
-            });
             setSectionList((prevState) => [
               ...prevState,
               {

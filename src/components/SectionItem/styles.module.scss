@@ -79,7 +79,7 @@
   .header {
     width: 152px;
     height: 112px;
-    background: #F5F4F4;
+    background: #f5f4f4;
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -89,14 +89,17 @@
     .text {
       font-size: 24px;
       font-weight: 700;
-      color: #7D70DD;
+      color: #7d70dd;
     }
   }
 
   .name {
     color: #151515;
     line-height: 22px;
-
+    max-height: 66px;
+    overflow: hidden;
     width: 152px;
+    word-break: break-all;
+    text-overflow: ellipsis;
   }
 }

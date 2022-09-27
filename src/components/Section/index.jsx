@@ -16,7 +16,7 @@ const Section = ({ sectionList, setSectionList, upInOrder, downInOrder }) => {
   };
 
   return (
-    <div>
+    <div style={{ paddingRight: "8px" }}>
       <div>
         {sectionList.map((item) => {
           const currentElementId = sectionList.findIndex(
