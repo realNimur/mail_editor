@@ -1,0 +1,66 @@
+.params {
+  &__title {
+    font-size: 14px;
+    color: #949ba0;
+    margin-bottom: 8px;
+  }
+
+  &__item {
+    padding: 4px 8px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    &:nth-child(even) {
+      background-color: #f7c274;
+    }
+
+    &:nth-child(odd) {
+      background-color: #74cde0;
+    }
+
+    &:hover {
+      path {
+        stroke: #7d70dd;
+      }
+    }
+
+    .name {
+      font-size: 14px;
+      color: #ffffff;
+      margin-right: 8px;
+    }
+
+    .cross {
+      width: 18px;
+      height: 18px;
+      display: flex;
+      background-color: #fff;
+      border-radius: 100px;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+  }
+
+  &__items {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+
+    & > * {
+      margin-right: 16px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.cross_svg {
+  path {
+    transition: 0.25s;
+  }
+}

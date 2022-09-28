@@ -1,0 +1,56 @@
+p {
+  margin: 0;
+}
+
+.wrapper {
+  padding-right: 8px;
+  padding-top: 144px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 500;
+  color: #151515;
+  margin-bottom: 24px;
+}
+
+.template {
+  margin-bottom: 24px;
+
+  &__name {
+    color: #949ba0;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  &__input {
+    background: #f0f2f5;
+    border-radius: 16px;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #151515;
+    width: 100%;
+    outline: none;
+    max-width: 576px;
+    border: none;
+    &::placeholder {
+      color: #bdbdbd;
+    }
+  }
+}
+
+.content {
+  &__title {
+    color: #151515;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+}
+
+.params__title {
+  font-size: 14px;
+  color: #949ba0;
+  margin-bottom: 8px;
+}

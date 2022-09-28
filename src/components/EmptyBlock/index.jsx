@@ -27,7 +27,7 @@ const EmptyBlock = () => {
           strokeLinejoin="round"
         />
       </svg>
-      <p className={styles.text}>Добавьте текстовый блок</p>
+      <p className={styles.text}>Добавьте блок</p>
     </div>
   );
 };

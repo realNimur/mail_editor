@@ -2,7 +2,13 @@ import React from "react";
 import SectionItem from "../SectionItem";
 import Footer from "../Footer";
 
-const Section = ({ sectionList, setSectionList, upInOrder, downInOrder }) => {
+const Section = ({
+  sectionList,
+  setSectionList,
+  upInOrder,
+  downInOrder,
+  withParams = false,
+}) => {
   const setInfoText = (text, currentElementId) => {
     const newState = [...sectionList];
     newState[currentElementId].text = text;
@@ -24,18 +30,21 @@ const Section = ({ sectionList, setSectionList, upInOrder, downInOrder }) => {
           );
 
           return (
-            <SectionItem
-              id={item.id}
-              key={item.id}
-              type={item.type}
-              file={item.file}
-              infoText={item.text}
-              isApprove={item.isApprove}
-              setInfoText={(text) => setInfoText(text, currentElementId)}
-              setApprove={() => setApprove(currentElementId)}
-              upInOrder={upInOrder}
-              downInOrder={downInOrder}
-            />
+            <>
+              <SectionItem
+                id={item.id}
+                key={item.id}
+                type={item.type}
+                file={item.file}
+                infoText={item.text}
+                isApprove={item.isApprove}
+                setInfoText={(text) => setInfoText(text, currentElementId)}
+                setApprove={() => setApprove(currentElementId)}
+                upInOrder={upInOrder}
+                downInOrder={downInOrder}
+                withParams={withParams}
+              />
+            </>
           );
         })}
       </div>

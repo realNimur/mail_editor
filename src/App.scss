@@ -5,7 +5,6 @@ body {
 .app {
   max-width: 1408px;
   padding-left: 18%;
-  margin: 0 auto;
 
   &__right {
     width: 100%;
@@ -138,22 +137,14 @@ body {
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
+  border: 1px solid #bdbdbd;
+  border-radius: 0 0 8px 8px;
 }
 
-.can_edit {
+.ql-disabled .ql-editor {
+  border: none;
 }
 
-.no_edit {
-  border: 1px solid #f5f4f4;
-  border-radius: 8px;
-  transition: 0.25s;
-  box-shadow: 0 4px 12px transparent;
-
-  &:hover {
-    box-shadow: 0 4px 12px rgba(21, 21, 21, 0.08);
-  }
-
-  & .ql-container.ql-snow {
-    border: none !important;
-  }
+.ql-container.ql-snow {
+  border: none !important;
 }

@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import HeaderButtons from "../HeaderButtons";
-import AddButton from "../AddButton";
 import Section from "../Section";
 import {
   DownElementOrderInArray,
   UpElementOrderInArray,
 } from "../../helpers/helpers";
 import EmptyBlock from "../EmptyBlock";
+import Params from "../Params";
+import styles from "./styles.module.scss";
 
 const CreateTemplate = () => {
   const [sectionList, setSectionList] = useState([]);
@@ -27,25 +28,27 @@ const CreateTemplate = () => {
   return (
     <>
       <HeaderButtons handleSave={sendData} />
-      <div className="" style={{ paddingRight: "8px" }}>
-        <p>Создание шаблона печатной формы</p>
-        <div className="">
-          <p>Название</p>
-          <input type="text" placeholder={"Напишите название"} />
+      <div className={styles.wrapper}>
+        <p className={styles.title}>Создание шаблона печатной формы</p>
+        <div className={styles.template}>
+          <p className={styles.template__name}>Название</p>
+          <input
+            type="text"
+            placeholder={"Напишите название"}
+            className={styles.template__input}
+          />
         </div>
-        <div className="">
-          <p>Параметры шаблона</p>
-          <div className="">
-            <AddButton />
-          </div>
-        </div>
-        <div className="">Содержание</div>
+        <Params
+          title={<p className={styles.params__title}>Параметры шаблона</p>}
+        />
+        <div className={styles.content__title}>Содержание</div>
         {sectionList.length === 0 && <EmptyBlock />}
         <Section
           sectionList={sectionList}
           setSectionList={setSectionList}
           downInOrder={downInOrder}
           upInOrder={upInOrder}
+          withParams={true}
         />
       </div>
     </>

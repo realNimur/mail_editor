@@ -29,7 +29,7 @@ const PlusComponent = () => {
   );
 };
 
-const AddButton = ({ handleClick, text = null }) => {
+const AddButton = ({ handleClick, text = null, ...props }) => {
   if (text) {
     return (
       <div className={styles.wrapper}>
@@ -41,6 +41,7 @@ const AddButton = ({ handleClick, text = null }) => {
             padding: "12px 32px",
           }}
           onClick={handleClick}
+          {...props}
         >
           <PlusComponent />
           <p className={styles.text}>{text}</p>
@@ -50,12 +51,7 @@ const AddButton = ({ handleClick, text = null }) => {
   }
 
   return (
-    <div
-      className={styles.wrapper}
-      style={{
-        padding: "32px 0",
-      }}
-    >
+    <div className={styles.wrapper}>
       <button
         className={styles.button}
         type={"button"}
@@ -65,6 +61,7 @@ const AddButton = ({ handleClick, text = null }) => {
           borderRadius: "50%",
         }}
         onClick={handleClick}
+        {...props}
       >
         <PlusComponent />
       </button>
