@@ -18,7 +18,6 @@ const SectionItem = ({
   setApprove,
   upInOrder,
   downInOrder,
-  withParams,
 }) => {
   const [isEditMode, setEditMode] = useState(false);
   const isTextSection = type === "text";
@@ -65,16 +64,18 @@ const SectionItem = ({
                 setApprove={setApprove}
                 style={{ marginBottom: " 16px" }}
               />
-              <OrderButtons
-                id={id}
-                upInOrder={upInOrder}
-                downInOrder={downInOrder}
-              />
+              <div className={styles["order-buttons"]}>
+                <OrderButtons
+                  id={id}
+                  upInOrder={upInOrder}
+                  downInOrder={downInOrder}
+                />
+              </div>
             </>
           )}
         </div>
       </div>
-      {withParams && isEditMode && (
+      {isEditMode && (
         <Params
           title={
             <p

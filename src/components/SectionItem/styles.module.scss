@@ -6,9 +6,18 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: stretch;
+  cursor: pointer;
+
+  &:hover {
+    & .order-buttons {
+      opacity: 1;
+    }
+  }
 }
 
-.section_left {
+.order-buttons {
+  opacity: 0;
+  transition: 0.25s;
 }
 
 .text_editor {

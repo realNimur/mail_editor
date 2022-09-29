@@ -2,13 +2,7 @@ import React from "react";
 import SectionItem from "../SectionItem";
 import Footer from "../Footer";
 
-const Section = ({
-  sectionList,
-  setSectionList,
-  upInOrder,
-  downInOrder,
-  withParams = false,
-}) => {
+const Section = ({ sectionList, setSectionList, upInOrder, downInOrder }) => {
   const setInfoText = (text, currentElementId) => {
     const newState = [...sectionList];
     newState[currentElementId].text = text;
@@ -43,7 +37,6 @@ const Section = ({
                   setApprove={() => setApprove(currentElementId)}
                   upInOrder={upInOrder}
                   downInOrder={downInOrder}
-                  withParams={withParams}
                 />
               </>
             );

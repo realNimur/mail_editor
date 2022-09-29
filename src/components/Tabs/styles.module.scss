@@ -1,7 +1,10 @@
 .tabs {
   display: flex;
+  margin-bottom: 64px;
+
   & > * {
     margin-right: 16px;
+
     &:last-child {
       margin-right: 0;
     }

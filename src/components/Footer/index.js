@@ -17,7 +17,19 @@ const Footer = ({ setSectionList }) => {
     ]);
   };
 
-  const addDocumentSection = () => {
+  const addDocumentSection = (file) => {
+    setSectionList((prevState) => [
+      ...prevState,
+      {
+        id: prevState.length + 1,
+        type: "document",
+        isApprove: false,
+        file,
+      },
+    ]);
+  };
+
+  const addTriggerDocument = () => {
     fileInput.current.value = null;
     fileInput.current.click();
   };
@@ -32,15 +44,7 @@ const Footer = ({ setSectionList }) => {
         ref={fileInput}
         onChange={(e) => {
           if (e.target?.files[0]) {
-            setSectionList((prevState) => [
-              ...prevState,
-              {
-                id: prevState.length + 1,
-                type: "document",
-                isApprove: false,
-                file: e.target?.files[0],
-              },
-            ]);
+            addDocumentSection(e.target.files[0]);
           }
         }}
         type={"file"}
@@ -48,7 +52,7 @@ const Footer = ({ setSectionList }) => {
         accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,text/plain, application/pdf, image/*"
       />
       <AddButton text={"Текст"} handleClick={addTextSection} />
-      <AddButton text={"Документ"} handleClick={addDocumentSection} />
+      <AddButton text={"Документ"} handleClick={addTriggerDocument} />
     </div>
   );
 };

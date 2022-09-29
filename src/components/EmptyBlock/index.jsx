@@ -1,9 +1,21 @@
 import React from "react";
 import styles from "./styles.module.scss";
 
-const EmptyBlock = () => {
+const EmptyBlock = ({ setSectionList }) => {
+  const addTextBlock = () => {
+    setSectionList((prevState) => [
+      ...prevState,
+      {
+        id: prevState.length + 1,
+        type: "text",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        isApprove: false,
+      },
+    ]);
+  };
+
   return (
-    <div className={styles.empty_block}>
+    <div className={styles.empty_block} onClick={addTextBlock}>
       <svg
         className={styles.plus}
         width="24"
@@ -27,7 +39,7 @@ const EmptyBlock = () => {
           strokeLinejoin="round"
         />
       </svg>
-      <p className={styles.text}>Добавьте блок</p>
+      <p className={styles.text}>Добавьте текстовый блок</p>
     </div>
   );
 };

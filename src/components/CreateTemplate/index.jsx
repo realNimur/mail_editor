@@ -42,13 +42,14 @@ const CreateTemplate = () => {
           title={<p className={styles.params__title}>Параметры шаблона</p>}
         />
         <div className={styles.content__title}>Содержание</div>
-        {sectionList.length === 0 && <EmptyBlock />}
+        {sectionList.length === 0 && (
+          <EmptyBlock setSectionList={setSectionList} />
+        )}
         <Section
           sectionList={sectionList}
           setSectionList={setSectionList}
           downInOrder={downInOrder}
           upInOrder={upInOrder}
-          withParams={true}
         />
       </div>
     </>
