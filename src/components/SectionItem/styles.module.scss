@@ -93,6 +93,16 @@
 
 .file {
   display: inline-block;
+  &_wrapper{
+    border: 1px solid #f5f4f4;
+    border-radius: 8px;
+    transition: 0.25s;
+    box-shadow: 0 4px 12px transparent;
+    padding: 16px;
+    &:hover{
+      box-shadow: 0 4px 12px rgb(21 21 21 / 8%);
+    }
+  }
 
   .header {
     width: 152px;

@@ -40,7 +40,10 @@ const SectionItem = ({
           />
         )}
         {isDocumentsSection && file && (
-          <div className={"no_edit"} style={{ width: "100%", padding: "16px" }}>
+          <div
+            className={styles.file_wrapper}
+            style={{ width: "100%", padding: "16px" }}
+          >
             <div className={styles.file}>
               <div className={styles.header}>
                 <p className={styles.text}>{getFormatFile(file.name)}</p>
@@ -75,7 +78,7 @@ const SectionItem = ({
           )}
         </div>
       </div>
-      {isEditMode && (
+      {isTextSection && isEditMode && (
         <Params
           title={
             <p
