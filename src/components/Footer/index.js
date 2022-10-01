@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import AddButton from "../AddButton";
 import styles from "./styles.module.scss";
 
-const Footer = ({ setSectionList }) => {
+const Footer = ({ setSectionList, openModal }) => {
   const fileInput = useRef(null);
 
   const addTextSection = () => {
@@ -51,6 +51,7 @@ const Footer = ({ setSectionList }) => {
         name="foo"
         accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,text/plain, application/pdf, image/*"
       />
+      <AddButton text={"Из библиотеки"} handleClick={openModal} />
       <AddButton text={"Текст"} handleClick={addTextSection} />
       <AddButton text={"Документ"} handleClick={addTriggerDocument} />
     </div>

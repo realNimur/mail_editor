@@ -1,31 +1,147 @@
 import "./App.scss";
 import NavigationButton from "./components/NavigationButton";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Constructor from "./components/Construcor";
 import CreateTemplate from "./components/CreateTemplate";
+import Library from "./components/Library";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
+import Login from "./components/Login";
 
 function App() {
-  const [activeConstructor, setActiveConstructor] = useState(true);
-  const [activeTemplate, setActiveTemplate] = useState(false);
+  const [isLogin, setLogin] = useState(false);
+  const [role, setRole] = useState(null);
+  const [isOpenLibrary, setOpenLibrary] = useState(false);
+  const [sectionList, setSectionList] = useState([
+    {
+      id: 1,
+      type: "text",
+      status: "edit",
+      text: '1. Настоящая независимая гарантия обеспечивает исполнение принципалом его обязательств по заключению контракта с бенефициаром (в случае признания принципала в соответствии с Федеральным законом от 05.04.2013 го № 44-ФЗ "О контрактной системе в сфере закупок товаров, работ, услуг для обеспечения государственных и муниципальных нужд" (далее - Федеральный закон) победителем определения поставщика (подрядчика, исполнителя) или иным участником закупки, с которым по результатам определения поставщика (подрядчика, исполнителя) заключается контракт).',
+      isApprove: false,
+      hasDelete: false,
+    },
+    {
+      id: 2,
+      type: "text",
+      status: "approve",
+      text: '2. Настоящая независимая гарантия обеспечивает исполнение принципалом его обязательств по заключению контракта с бенефициаром (в случае признания принципала в соответствии с Федеральным законом от 05.04.2013 го № 44-ФЗ "О контрактной системе в сфере закупок товаров, работ, услуг для обеспечения государственных и муниципальных нужд" (далее - Федеральный закон) победителем определения поставщика (подрядчика, исполнителя) или иным участником закупки, с которым по результатам определения поставщика (подрядчика, исполнителя) заключается контракт).',
+      isApprove: true,
+      hasDelete: false,
+    },
+    {
+      id: 3,
+      type: "text",
+      status: "approve",
+      text: '3. Настоящая независимая гарантия обеспечивает исполнение принципалом его обязательств по заключению контракта с бенефициаром (в случае признания принципала в соответствии с Федеральным законом от 05.04.2013 го № 44-ФЗ "О контрактной системе в сфере закупок товаров, работ, услуг для обеспечения государственных и муниципальных нужд" (далее - Федеральный закон) победителем определения поставщика (подрядчика, исполнителя) или иным участником закупки, с которым по результатам определения поставщика (подрядчика, исполнителя) заключается контракт).',
+      isApprove: false,
+      hasDelete: false,
+    },
+    {
+      id: 4,
+      type: "text",
+      status: "approve",
+      text: '3. Настоящая независимая гарантия обеспечивает исполнение принципалом его обязательств по заключению контракта с бенефициаром (в случае признания принципала в соответствии с Федеральным законом от 05.04.2013 го № 44-ФЗ "О контрактной системе в сфере закупок товаров, работ, услуг для обеспечения государственных и муниципальных нужд" (далее - Федеральный закон) победителем определения поставщика (подрядчика, исполнителя) или иным участником закупки, с которым по результатам определения поставщика (подрядчика, исполнителя) заключается контракт).',
+      isApprove: false,
+      hasDelete: true,
+    },
+  ]);
+  const [templateList, setTemplateList] = useState([]);
 
-  useEffect(() => {
-    let params = new URL(document.location).searchParams;
-    let window = params.get("window");
-    if (window === "create") {
-      setActiveConstructor(false);
-      return setActiveTemplate(true);
+  const setLoginManager = () => {
+    setRole("manager");
+    setLogin(true);
+  };
+
+  const setLoginClient = () => {
+    setRole("client");
+    setLogin(true);
+  };
+
+  const openModal = () => setOpenLibrary(true);
+
+  const addFromLibrary = (data) => {
+    const newData = (prevState) => [
+      ...prevState,
+      {
+        ...data,
+        id: prevState.length + 1,
+        isApprove: false,
+        hasDelete: false,
+      },
+    ];
+    if (window.location.pathname === "/") {
+      setSectionList(newData);
+    } else if (window.location.pathname === "/create") {
+      setTemplateList(newData);
     }
-    setActiveTemplate(false);
-    setActiveConstructor(true);
-  }, []);
+    setOpenLibrary(false);
+  };
 
   return (
     <>
-      <div className="app">
-        <NavigationButton />
-        {activeConstructor && <Constructor />}
-        {activeTemplate && <CreateTemplate />}
-      </div>
+      {isLogin ? (
+        <div
+          className="app"
+          style={{
+            overflow: isOpenLibrary ? "hidden" : "auto",
+          }}
+        >
+          <RouterProvider
+            router={createBrowserRouter([
+              {
+                path: "/",
+                element: (
+                  <Constructor
+                    role={role}
+                    openModal={openModal}
+                    setSectionList={setSectionList}
+                    sectionList={sectionList}
+                  />
+                ),
+              },
+              {
+                path: "/create",
+                element: (
+                  <CreateTemplate
+                    templateList={templateList}
+                    setTemplateList={setTemplateList}
+                    role={role}
+                    openModal={openModal}
+                  />
+                ),
+              },
+            ])}
+          />
+          <NavigationButton />
+          <Library
+            addFromLibrary={addFromLibrary}
+            isOpenLibrary={isOpenLibrary}
+            setOpenLibrary={setOpenLibrary}
+          />
+        </div>
+      ) : (
+        <RouterProvider
+          router={createBrowserRouter([
+            {
+              path: "/",
+              element: (
+                <Login
+                  setLoginManager={setLoginManager}
+                  setLoginClient={setLoginClient}
+                />
+              ),
+            },
+            {
+              path: "*",
+              element: <Navigate to="/" replace />,
+            },
+          ])}
+        />
+      )}
     </>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import HeaderButtons from "../HeaderButtons";
 import Section from "../Section";
 import {
@@ -8,21 +8,20 @@ import {
 import EmptyBlock from "../EmptyBlock";
 import Params from "../Params";
 import styles from "./styles.module.scss";
+import Footer from "../Footer";
 
-const CreateTemplate = () => {
-  const [sectionList, setSectionList] = useState([]);
-
+const CreateTemplate = ({ openModal, templateList, setTemplateList }) => {
   const sendData = () => {
-    console.log(JSON.stringify(sectionList));
-    alert(JSON.stringify(sectionList));
+    console.log(JSON.stringify(templateList));
+    alert(JSON.stringify(templateList));
   };
 
   const upInOrder = (id) => {
-    setSectionList(UpElementOrderInArray(id, sectionList));
+    setTemplateList(UpElementOrderInArray(id, templateList));
   };
 
   const downInOrder = (id) => {
-    setSectionList(DownElementOrderInArray(id, sectionList));
+    setTemplateList(DownElementOrderInArray(id, templateList));
   };
 
   return (
@@ -42,15 +41,16 @@ const CreateTemplate = () => {
           title={<p className={styles.params__title}>Параметры шаблона</p>}
         />
         <div className={styles.content__title}>Содержание</div>
-        {sectionList.length === 0 && (
-          <EmptyBlock setSectionList={setSectionList} />
+        {templateList.length === 0 && (
+          <EmptyBlock setSectionList={setTemplateList} />
         )}
         <Section
-          sectionList={sectionList}
-          setSectionList={setSectionList}
+          sectionList={templateList}
+          setSectionList={setTemplateList}
           downInOrder={downInOrder}
           upInOrder={upInOrder}
         />
+        <Footer openModal={openModal} setSectionList={setTemplateList} />
       </div>
     </>
   );

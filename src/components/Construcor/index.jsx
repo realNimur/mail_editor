@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "../Header";
 import Tabs from "../Tabs";
 import Section from "../Section";
@@ -6,29 +6,9 @@ import {
   DownElementOrderInArray,
   UpElementOrderInArray,
 } from "../../helpers/helpers";
+import Footer from "../Footer";
 
-const Constructor = () => {
-  const [sectionList, setSectionList] = useState([
-    {
-      id: 1,
-      type: "text",
-      text: '1. Настоящая независимая гарантия обеспечивает исполнение принципалом его обязательств по заключению контракта с бенефициаром (в случае признания принципала в соответствии с Федеральным законом от 05.04.2013 го № 44-ФЗ "О контрактной системе в сфере закупок товаров, работ, услуг для обеспечения государственных и муниципальных нужд" (далее - Федеральный закон) победителем определения поставщика (подрядчика, исполнителя) или иным участником закупки, с которым по результатам определения поставщика (подрядчика, исполнителя) заключается контракт).',
-      isApprove: false,
-    },
-    {
-      id: 2,
-      type: "text",
-      text: '2. Настоящая независимая гарантия обеспечивает исполнение принципалом его обязательств по заключению контракта с бенефициаром (в случае признания принципала в соответствии с Федеральным законом от 05.04.2013 го № 44-ФЗ "О контрактной системе в сфере закупок товаров, работ, услуг для обеспечения государственных и муниципальных нужд" (далее - Федеральный закон) победителем определения поставщика (подрядчика, исполнителя) или иным участником закупки, с которым по результатам определения поставщика (подрядчика, исполнителя) заключается контракт).',
-      isApprove: true,
-    },
-    {
-      id: 3,
-      type: "text",
-      text: '3. Настоящая независимая гарантия обеспечивает исполнение принципалом его обязательств по заключению контракта с бенефициаром (в случае признания принципала в соответствии с Федеральным законом от 05.04.2013 го № 44-ФЗ "О контрактной системе в сфере закупок товаров, работ, услуг для обеспечения государственных и муниципальных нужд" (далее - Федеральный закон) победителем определения поставщика (подрядчика, исполнителя) или иным участником закупки, с которым по результатам определения поставщика (подрядчика, исполнителя) заключается контракт).',
-      isApprove: false,
-    },
-  ]);
-
+const Constructor = ({ openModal, sectionList, setSectionList, role }) => {
   const sendData = () => {
     console.log(JSON.stringify(sectionList));
     alert(JSON.stringify(sectionList));
@@ -42,6 +22,16 @@ const Constructor = () => {
     setSectionList(DownElementOrderInArray(id, sectionList));
   };
 
+  const handleDelete = (id) => {
+    setSectionList((prevState) => prevState.filter((item) => item.id !== id));
+  };
+
+  const handleReturn = (id) => {
+    const newState = [...sectionList];
+    newState[sectionList.findIndex((item) => item.id === id)].hasDelete = false;
+    setSectionList(newState);
+  };
+
   return (
     <div className="app__right">
       <div className="right-header">
@@ -49,11 +39,15 @@ const Constructor = () => {
         <Tabs />
       </div>
       <Section
+        role={role}
         sectionList={sectionList}
         setSectionList={setSectionList}
+        handleDelete={handleDelete}
+        handleReturn={handleReturn}
         upInOrder={upInOrder}
         downInOrder={downInOrder}
       />
+      <Footer openModal={openModal} setSectionList={setSectionList} />
     </div>
   );
 };

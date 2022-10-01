@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./styles.module.scss";
 
-const OrderButtons = ({ id, upInOrder, downInOrder }) => {
+const OrderButtons = ({ id, upInOrder, downInOrder, ...props }) => {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} {...props}>
       <button
         type={"button"}
         className={styles.button}

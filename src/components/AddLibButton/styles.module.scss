@@ -1,7 +1,7 @@
-.edit_button {
+.button {
   border: none;
   outline: none;
-  padding: 12px 16px;
+  padding: 13px;
   background: #ffffff;
   box-shadow: 0 4px 12px rgba(21, 21, 21, 0.08);
   border-radius: 56px;
@@ -11,16 +11,21 @@
   display: flex;
   align-items: center;
   font-size: 14px;
+  text-decoration: none;
+
+  path {
+    transition: .25s;
+  }
 
   &:hover {
-    color: #7d70dd;
+    color: #7D70DD;
 
-    .pencil {
-      fill: #7d70dd;
+    path {
+      stroke: #7D70DD;
     }
   }
 }
 
-.pencil {
-  margin-right: 10.5px;
+.text_button {
+  margin-left: 10.5px;
 }

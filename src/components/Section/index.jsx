@@ -1,8 +1,15 @@
 import React from "react";
 import SectionItem from "../SectionItem";
-import Footer from "../Footer";
 
-const Section = ({ sectionList, setSectionList, upInOrder, downInOrder }) => {
+const Section = ({
+  role,
+  sectionList,
+  setSectionList,
+  upInOrder,
+  downInOrder,
+  handleDelete,
+  handleReturn,
+}) => {
   const setInfoText = (text, currentElementId) => {
     const newState = [...sectionList];
     newState[currentElementId].text = text;
@@ -18,32 +25,34 @@ const Section = ({ sectionList, setSectionList, upInOrder, downInOrder }) => {
   return (
     <div style={{ paddingRight: "8px" }}>
       {sectionList?.length > 0 && (
-        <div>
+        <>
           {sectionList.map((item) => {
             const currentElementId = sectionList.findIndex(
               (section) => section.id === item.id
             );
 
             return (
-              <>
-                <SectionItem
-                  id={item.id}
-                  key={item.id}
-                  type={item.type}
-                  file={item.file}
-                  infoText={item.text}
-                  isApprove={item.isApprove}
-                  setInfoText={(text) => setInfoText(text, currentElementId)}
-                  setApprove={() => setApprove(currentElementId)}
-                  upInOrder={upInOrder}
-                  downInOrder={downInOrder}
-                />
-              </>
+              <SectionItem
+                id={item.id}
+                key={item.id}
+                type={item.type}
+                role={role}
+                handleReturn={handleReturn}
+                status={item.status}
+                file={item.file}
+                hasDelete={item.hasDelete}
+                infoText={item.text}
+                isApprove={item.isApprove}
+                handleDelete={handleDelete}
+                setInfoText={(text) => setInfoText(text, currentElementId)}
+                setApprove={() => setApprove(currentElementId)}
+                upInOrder={upInOrder}
+                downInOrder={downInOrder}
+              />
             );
           })}
-        </div>
+        </>
       )}
-      <Footer setSectionList={setSectionList} />
     </div>
   );
 };

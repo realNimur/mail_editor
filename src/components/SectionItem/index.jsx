@@ -7,18 +7,27 @@ import styles from "./styles.module.scss";
 import Editor from "../Editor";
 import OrderButtons from "../OrderButtons/OrderButtons";
 import Params from "../Params";
+import DeleteButton from "../DeleteButton";
+import ReturnButton from "../ReturnButton";
+import AddLibButton from "../AddLibButton";
 
 const SectionItem = ({
   id,
   type,
   infoText,
+  status,
   file,
+  role,
   setInfoText,
+  hasDelete,
   isApprove,
+  handleDelete,
+  handleReturn,
   setApprove,
   upInOrder,
   downInOrder,
 }) => {
+  const isManager = role === "manager";
   const [isEditMode, setEditMode] = useState(false);
   const isTextSection = type === "text";
   const isDocumentsSection = type === "document";
@@ -30,50 +39,73 @@ const SectionItem = ({
 
   return (
     <>
-      <div className={styles.section_item}>
+      <div
+        className={`${styles.section_item} ${
+          hasDelete ? styles.section_item_delete : ""
+        }`}
+      >
         {isTextSection && (
           <Editor
             id={id}
+            status={status}
             infoText={infoText}
+            hasDelete={hasDelete}
             setInfoText={setInfoText}
             isEditMode={isEditMode}
           />
         )}
         {isDocumentsSection && file && (
-          <div
-            className={styles.file_wrapper}
-            style={{ width: "100%", padding: "16px" }}
-          >
+          <div className={styles.file_wrapper}>
             <div className={styles.file}>
               <div className={styles.header}>
                 <p className={styles.text}>{getFormatFile(file.name)}</p>
               </div>
               <p className={styles.name}>{file.name}</p>
             </div>
+            <div className="format">
+              <p className="format__name">Файл</p>
+            </div>
           </div>
         )}
 
         <div className={styles.section_buttons}>
-          {isEditMode ? (
-            <SaveButton onClick={() => setEditMode(false)} />
+          {hasDelete ? (
+            <ReturnButton onClick={() => handleReturn(id)} />
           ) : (
             <>
-              <EditButton
-                style={{ marginBottom: " 16px" }}
-                onClick={() => setEditMode(true)}
-              />
-              <ApproveButton
-                isApprove={isApprove}
-                setApprove={setApprove}
-                style={{ marginBottom: " 16px" }}
-              />
-              <div className={styles["order-buttons"]}>
-                <OrderButtons
-                  id={id}
-                  upInOrder={upInOrder}
-                  downInOrder={downInOrder}
-                />
-              </div>
+              {isEditMode ? (
+                <SaveButton onClick={() => setEditMode(false)} />
+              ) : (
+                <>
+                  <div className={styles.section_buttons_wrapper}>
+                    <div>
+                      <EditButton
+                        style={{ marginBottom: " 16px" }}
+                        onClick={() => setEditMode(true)}
+                      />
+                      {!isManager && (
+                        <ApproveButton
+                          isApprove={isApprove}
+                          setApprove={setApprove}
+                          style={{ marginBottom: " 16px" }}
+                        />
+                      )}
+                      <div className={styles["hide-buttons"]}>
+                        <OrderButtons
+                          id={id}
+                          upInOrder={upInOrder}
+                          downInOrder={downInOrder}
+                          style={{ marginBottom: " 16px" }}
+                        />
+                        {isManager && <AddLibButton />}
+                      </div>
+                    </div>
+                    <div className={styles["hide-buttons"]}>
+                      <DeleteButton handleDelete={() => handleDelete(id)} />
+                    </div>
+                  </div>
+                </>
+              )}
             </>
           )}
         </div>

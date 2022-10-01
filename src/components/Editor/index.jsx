@@ -37,9 +37,18 @@ const VariableItem = ({ title, addVariable, color }) => {
   );
 };
 
-const Editor = ({ id, infoText, setInfoText, isEditMode }) => {
+const Editor = ({
+  id,
+  infoText,
+  setInfoText,
+  isEditMode,
+  status,
+  hasDelete,
+}) => {
   const refEditor = useRef(null);
   const unId = `toolbar-${id}`;
+  const isApprove = status === "approve";
+  const isEdit = status === "edit";
 
   const addVariable = (text, color = "#000") => {
     if (refEditor.current?.selection?.index > -1) {
@@ -58,7 +67,7 @@ const Editor = ({ id, infoText, setInfoText, isEditMode }) => {
           isEditMode ? "can_edit" : "no_edit"
         }`}
       >
-        <div className={styles.quill}>
+        <div className={`${styles.quill} ${hasDelete ? "quill_delete" : ""}`}>
           <div
             id={unId}
             style={{
@@ -94,6 +103,24 @@ const Editor = ({ id, infoText, setInfoText, isEditMode }) => {
             ]}
           />
         </div>
+        {!isEditMode && (
+          <div className="format">
+            <p className="format__name">Текст</p>
+            {!hasDelete && (
+              <div
+                className={`format__status ${isApprove ? "approve" : ""} ${
+                  isEdit ? "edit" : ""
+                }`}
+              >
+                <span className={"status__icon"} />
+                <p className={"status__name"}>
+                  {isApprove && "Согласован"}
+                  {isEdit && "Отредактирован"}
+                </p>
+              </div>
+            )}
+          </div>
+        )}
         {isEditMode && (
           <div className={styles.editor_variables}>
             <p className={styles.editor_variables_text}>
