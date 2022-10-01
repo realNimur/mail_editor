@@ -2,7 +2,7 @@ body {
   margin: 0;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
@@ -172,10 +172,10 @@ a{
   &__name {
     font-size: 12px;
     font-weight: 500;
-    background: #E2DEFF;
+    background: #e2deff;
     border-radius: 100px;
     padding: 4px 8px;
-    color: #7D70DD;
+    color: #7d70dd;
   }
 
   &__status {
@@ -193,28 +193,28 @@ a{
     }
 
     &.approve {
-      background-color: #D7F4E3;
+      background-color: #d7f4e3;
 
       .status__icon {
-        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAHCAYAAAAxrNxjAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAB2SURBVHgBhY7RDUAwFEXv8yW+jNANxAaMYgIdwQb8UH90EiN0BSN0AaolEWmK9/Vy7snNJfxcrcaWsMnoS+JqmAFTAMkacSWYBTwkGVBGiMsur/TZaEHNVd+8SY7RFQhmgIWwS4uYL93iU7av9qXAeLd3SkPZAXzOMI5x+uKmAAAAAElFTkSuQmCC');
+        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAHCAYAAAAxrNxjAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAB2SURBVHgBhY7RDUAwFEXv8yW+jNANxAaMYgIdwQb8UH90EiN0BSN0AaolEWmK9/Vy7snNJfxcrcaWsMnoS+JqmAFTAMkacSWYBTwkGVBGiMsur/TZaEHNVd+8SY7RFQhmgIWwS4uYL93iU7av9qXAeLd3SkPZAXzOMI5x+uKmAAAAAElFTkSuQmCC");
         height: 6.5px;
       }
 
       .status__name {
-        color: #6FCF97;
+        color: #6fcf97;
       }
     }
 
     &.edit {
-      background-color: #F5DBC4;
+      background-color: #f5dbc4;
 
       .status__icon {
-        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACESURBVHgBlc+9DYNADAXgZ0MdKRtklKSLWIIS0bEBjECH6GADSjpWYQOQ6G3uroGC48ednz9ZeoSDmar/J2AeACleSd/ajH2IgAYISrN/bR76PqkwKcts4tHe6AjBIc1F9PdO+w1eIQfvIFcmZI4B7c7QrgxlBo0+9GhoqaNcgeIUmfsKv8ZU4Up1f1kAAAAASUVORK5CYII=');
+        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACESURBVHgBlc+9DYNADAXgZ0MdKRtklKSLWIIS0bEBjECH6GADSjpWYQOQ6G3uroGC48ednz9ZeoSDmar/J2AeACleSd/ajH2IgAYISrN/bR76PqkwKcts4tHe6AjBIc1F9PdO+w1eIQfvIFcmZI4B7c7QrgxlBo0+9GhoqaNcgeIUmfsKv8ZU4Up1f1kAAAAASUVORK5CYII=");
         height: 10px;
       }
 
       .status__name {
-        color: #F2994A;
+        color: #f2994a;
       }
     }
   }

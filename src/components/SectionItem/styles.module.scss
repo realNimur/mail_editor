@@ -9,7 +9,7 @@
   cursor: pointer;
 
   &_delete {
-    color: #BDBDBD;
+    color: #bdbdbd;
   }
 
   &:hover {
@@ -46,7 +46,7 @@
   max-width: 657px;
   display: flex;
   flex-direction: column;
-  &_delete{
+  &_delete {
     height: 30px;
     overflow: hidden;
     .ql-editor {
@@ -74,7 +74,6 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
-
   }
 }
 

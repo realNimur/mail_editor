@@ -12,7 +12,7 @@
 }
 
 .library {
-  background: #F5F4F4;
+  background: #f5f4f4;
   box-shadow: 0 4px 12px rgba(21, 21, 21, 0.08);
   border-radius: 16px;
   display: flex;
@@ -29,14 +29,13 @@
     cursor: pointer;
 
     path {
-      transition: .25s;
+      transition: 0.25s;
     }
 
     &:hover {
       path {
-        stroke: #7D70DD;
+        stroke: #7d70dd;
       }
-
     }
   }
 
@@ -44,7 +43,7 @@
     padding: 56px 36px;
     border-top-right-radius: 16px;
     border-bottom-right-radius: 16px;
-    border-right: 1px solid #E2DEFF;
+    border-right: 1px solid #e2deff;
     width: 100%;
     max-width: 264px;
 
@@ -54,7 +53,7 @@
       font-weight: 500;
       padding: 10px 16px;
       border-radius: 8px;
-      transition: .25s;
+      transition: 0.25s;
       margin-bottom: 16px;
 
       &:last-child {
@@ -62,18 +61,18 @@
       }
 
       &.active {
-        background-color: #E2DEFF;
-        color: #7D70DD;
+        background-color: #e2deff;
+        color: #7d70dd;
       }
 
       &:hover {
-        color: #7D70DD;
+        color: #7d70dd;
       }
     }
   }
 
   &__content {
-    background-color: #F5F4F4;
+    background-color: #f5f4f4;
     margin: 56px 10px 56px 40px;
     max-height: 392px;
     width: 100%;
@@ -85,18 +84,18 @@
     }
 
     &::-webkit-scrollbar-track {
-      background: #E2DEFF;
+      background: #e2deff;
       border-radius: 20px;
     }
 
     &::-webkit-scrollbar-thumb {
-      background: #7D70DD;
+      background: #7d70dd;
       border-radius: 100px;
     }
 
     .content__item {
-      background: #FFFFFF;
-      border: 1px solid #F5F4F4;
+      background: #ffffff;
+      border: 1px solid #f5f4f4;
       border-radius: 16px;
       margin-bottom: 16px;
       display: flex;
@@ -105,7 +104,7 @@
       width: 100%;
       max-width: 960px;
       padding: 24px;
-      transition: .25s;
+      transition: 0.25s;
 
       &:hover {
         box-shadow: 0 4px 12px rgba(21, 21, 21, 0.08);
@@ -133,12 +132,12 @@
       }
 
       .type {
-        background: #E2DEFF;
+        background: #e2deff;
         border-radius: 100px;
         padding: 4px 8px;
         font-weight: 500;
         font-size: 12px;
-        color: #7D70DD;
+        color: #7d70dd;
         text-align: center;
         margin-right: 10px;
       }

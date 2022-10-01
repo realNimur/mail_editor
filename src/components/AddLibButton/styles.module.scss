@@ -14,14 +14,14 @@
   text-decoration: none;
 
   path {
-    transition: .25s;
+    transition: 0.25s;
   }
 
   &:hover {
-    color: #7D70DD;
+    color: #7d70dd;
 
     path {
-      stroke: #7D70DD;
+      stroke: #7d70dd;
     }
   }
 }
