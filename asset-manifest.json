@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/mail_editor/static/css/main.f66361ff.css",
-    "main.js": "/mail_editor/static/js/main.68818135.js",
+    "main.css": "/mail_editor/static/css/main.bb8b14a5.css",
+    "main.js": "/mail_editor/static/js/main.c1f545ae.js",
     "index.html": "/mail_editor/index.html",
-    "main.f66361ff.css.map": "/mail_editor/static/css/main.f66361ff.css.map",
-    "main.68818135.js.map": "/mail_editor/static/js/main.68818135.js.map"
+    "main.bb8b14a5.css.map": "/mail_editor/static/css/main.bb8b14a5.css.map",
+    "main.c1f545ae.js.map": "/mail_editor/static/js/main.c1f545ae.js.map"
   },
   "entrypoints": [
-    "static/css/main.f66361ff.css",
-    "static/js/main.68818135.js"
+    "static/css/main.bb8b14a5.css",
+    "static/js/main.c1f545ae.js"
   ]
 }
