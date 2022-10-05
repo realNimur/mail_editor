@@ -25,7 +25,7 @@ const CreateTemplate = ({ templateList, setTemplateList }) => {
 
   return (
     <>
-      <HeaderButtons handleSave={sendData} />
+      <HeaderButtons isCreateTemplatePage={true} handleSave={sendData} />
       <div className={styles.wrapper}>
         <p className={styles.title}>Создание элемента библиотеки</p>
         <div className={styles.template}>
@@ -48,6 +48,7 @@ const CreateTemplate = ({ templateList, setTemplateList }) => {
           setSectionList={setTemplateList}
           downInOrder={downInOrder}
           upInOrder={upInOrder}
+          isCreateTemplatePage={true}
         />
       </div>
     </>

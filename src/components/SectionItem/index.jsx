@@ -28,6 +28,7 @@ const SectionItem = ({
   upInOrder,
   downInOrder,
   addToTemplate,
+  isCreateTemplatePage = false,
 }) => {
   const isManager = role === "manager";
   const [isEditMode, setEditMode] = useState(false);
@@ -41,7 +42,9 @@ const SectionItem = ({
 
   return (
     <>
-      <div className={styles.order}>{order + 1}.</div>
+      {!isCreateTemplatePage && (
+        <div className={styles.order}>{order + 1}.</div>
+      )}
       <div
         className={`${styles.section_item} ${
           hasDelete ? styles.section_item_delete : ""
@@ -50,7 +53,7 @@ const SectionItem = ({
         {isTextSection && (
           <Editor
             id={id}
-            status={status}
+            status={!isCreateTemplatePage ? status : null}
             infoText={infoText}
             hasDelete={hasDelete}
             setInfoText={setInfoText}
@@ -86,39 +89,44 @@ const SectionItem = ({
                         style={{ marginBottom: " 16px" }}
                         onClick={() => setEditMode(true)}
                       />
-                      {!isManager && (
+
+                      {!isCreateTemplatePage && !isManager && (
                         <ApproveButton
                           isApprove={isApprove}
                           setApprove={setApprove}
                           style={{ marginBottom: " 16px" }}
                         />
                       )}
-                      <div className={styles["hide-buttons"]}>
-                        <OrderButtons
-                          id={id}
-                          upInOrder={upInOrder}
-                          downInOrder={downInOrder}
-                          style={{ marginBottom: " 16px" }}
-                        />
-                        {isManager && (
-                          <AddLibButton
-                            onClick={() =>
-                              addToTemplate({
-                                id,
-                                type,
-                                text: infoText,
-                                status,
-                                isApprove: false,
-                                hasDelete: false,
-                              })
-                            }
+                      {!isCreateTemplatePage && (
+                        <div className={styles["hide-buttons"]}>
+                          <OrderButtons
+                            id={id}
+                            upInOrder={upInOrder}
+                            downInOrder={downInOrder}
+                            style={{ marginBottom: " 16px" }}
                           />
-                        )}
+                          {isManager && (
+                            <AddLibButton
+                              onClick={() =>
+                                addToTemplate({
+                                  id,
+                                  type,
+                                  text: infoText,
+                                  status,
+                                  isApprove: false,
+                                  hasDelete: false,
+                                })
+                              }
+                            />
+                          )}
+                        </div>
+                      )}
+                    </div>
+                    {!isCreateTemplatePage && (
+                      <div className={styles["hide-buttons"]}>
+                        <DeleteButton handleDelete={() => handleDelete(id)} />
                       </div>
-                    </div>
-                    <div className={styles["hide-buttons"]}>
-                      <DeleteButton handleDelete={() => handleDelete(id)} />
-                    </div>
+                    )}
                   </div>
                 </>
               )}
