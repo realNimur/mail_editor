@@ -9,6 +9,7 @@ const Section = ({
   downInOrder,
   handleDelete,
   handleReturn,
+  addToTemplate,
 }) => {
   const setInfoText = (text, currentElementId) => {
     const newState = [...sectionList];
@@ -49,6 +50,7 @@ const Section = ({
                 setApprove={() => setApprove(currentElementId)}
                 upInOrder={upInOrder}
                 downInOrder={downInOrder}
+                addToTemplate={addToTemplate}
               />
             );
           })}

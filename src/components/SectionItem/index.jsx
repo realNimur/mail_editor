@@ -27,6 +27,7 @@ const SectionItem = ({
   setApprove,
   upInOrder,
   downInOrder,
+  addToTemplate,
 }) => {
   const isManager = role === "manager";
   const [isEditMode, setEditMode] = useState(false);
@@ -99,7 +100,20 @@ const SectionItem = ({
                           downInOrder={downInOrder}
                           style={{ marginBottom: " 16px" }}
                         />
-                        {isManager && <AddLibButton />}
+                        {isManager && (
+                          <AddLibButton
+                            onClick={() =>
+                              addToTemplate({
+                                id,
+                                type,
+                                text: infoText,
+                                status,
+                                isApprove: false,
+                                hasDelete: false,
+                              })
+                            }
+                          />
+                        )}
                       </div>
                     </div>
                     <div className={styles["hide-buttons"]}>
