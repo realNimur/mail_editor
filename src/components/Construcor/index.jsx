@@ -35,7 +35,7 @@ const Constructor = ({ openModal, sectionList, setSectionList, role }) => {
   return (
     <div className="app__right">
       <div className="right-header">
-        <Header sendData={sendData} />
+        <Header role={role} sendData={sendData} />
         <Tabs />
       </div>
       <Section

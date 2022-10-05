@@ -1,9 +1,12 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import AddButton from "../AddButton";
 import styles from "./styles.module.scss";
+import { Context } from "../../App";
 
 const Footer = ({ setSectionList, openModal }) => {
   const fileInput = useRef(null);
+  const { role } = useContext(Context);
+  const isManager = role === "manager";
 
   const addTextSection = () => {
     setSectionList((prevState) => [
@@ -51,7 +54,9 @@ const Footer = ({ setSectionList, openModal }) => {
         name="foo"
         accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,text/plain, application/pdf, image/*"
       />
-      <AddButton text={"Из библиотеки"} handleClick={openModal} />
+      {isManager && (
+        <AddButton text={"Из библиотеки"} handleClick={openModal} />
+      )}
       <AddButton text={"Текст"} handleClick={addTextSection} />
       <AddButton text={"Документ"} handleClick={addTriggerDocument} />
     </div>

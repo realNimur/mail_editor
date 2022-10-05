@@ -19,6 +19,7 @@ const SectionItem = ({
   file,
   role,
   setInfoText,
+  order,
   hasDelete,
   isApprove,
   handleDelete,
@@ -39,6 +40,7 @@ const SectionItem = ({
 
   return (
     <>
+      <div className={styles.order}>{order + 1}.</div>
       <div
         className={`${styles.section_item} ${
           hasDelete ? styles.section_item_delete : ""

@@ -41,14 +41,22 @@
   }
 }
 
+.order {
+  color: #151515;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
 .quill {
   width: 100%;
   max-width: 657px;
   display: flex;
   flex-direction: column;
+
   &_delete {
     height: 30px;
     overflow: hidden;
+
     .ql-editor {
       padding: 0 !important;
     }

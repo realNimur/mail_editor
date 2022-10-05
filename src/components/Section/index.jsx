@@ -26,7 +26,7 @@ const Section = ({
     <div style={{ paddingRight: "8px" }}>
       {sectionList?.length > 0 && (
         <>
-          {sectionList.map((item) => {
+          {sectionList.map((item, index) => {
             const currentElementId = sectionList.findIndex(
               (section) => section.id === item.id
             );
@@ -37,6 +37,7 @@ const Section = ({
                 key={item.id}
                 type={item.type}
                 role={role}
+                order={index}
                 handleReturn={handleReturn}
                 status={item.status}
                 file={item.file}

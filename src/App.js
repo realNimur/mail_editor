@@ -11,6 +11,8 @@ import {
 } from "react-router-dom";
 import Login from "./components/Login";
 
+export const Context = React.createContext(null);
+
 function App() {
   const [isLogin, setLogin] = useState(false);
   const [role, setRole] = useState(null);
@@ -82,7 +84,7 @@ function App() {
   };
 
   return (
-    <>
+    <Context.Provider value={{ role }}>
       {isLogin ? (
         <div
           className="app"
@@ -142,7 +144,7 @@ function App() {
           ])}
         />
       )}
-    </>
+    </Context.Provider>
   );
 }
 
