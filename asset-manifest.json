@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/mail_editor/static/css/main.9b301012.css",
-    "main.js": "/mail_editor/static/js/main.35fcdec8.js",
+    "main.js": "/mail_editor/static/js/main.e1cb0cf2.js",
     "static/media/image.png": "/mail_editor/static/media/image.3c3baa55b6e6648def05.png",
     "index.html": "/mail_editor/index.html",
     "main.9b301012.css.map": "/mail_editor/static/css/main.9b301012.css.map",
-    "main.35fcdec8.js.map": "/mail_editor/static/js/main.35fcdec8.js.map"
+    "main.e1cb0cf2.js.map": "/mail_editor/static/js/main.e1cb0cf2.js.map"
   },
   "entrypoints": [
     "static/css/main.9b301012.css",
-    "static/js/main.35fcdec8.js"
+    "static/js/main.e1cb0cf2.js"
   ]
 }
