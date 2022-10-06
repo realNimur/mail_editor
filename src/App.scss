@@ -66,6 +66,16 @@ a {
         border-radius: 16px;
         color: #7D70DD;
         cursor: pointer;
+        position: relative;
+
+        .chevron{
+          position: absolute;
+          top: 14px;
+          right: 16px;
+          width: 24px;
+          height: 24px;
+          background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACBSURBVHgB7ZDBDYAgDEUrLiJxEjdiARMSF2AjJzGwiEZRvGCpf4D+C4TS95oSaTSajnuc3Rbz2ZOZfLBJAngXh52ONd+XMNq6boTeuzEDAHjzDyvIk19HkiQVPJWeT9gVtQDvuqQaLJCmROG/Ak5SniE4JGAkhMJhQSUhFK7RaJ6cMihUe2/m5TAAAAAASUVORK5CYII=');
+        }
 
         p {
           padding: 16px;

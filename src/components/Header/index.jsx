@@ -21,6 +21,12 @@ const Header = ({ sendData }) => {
         </div>
 
         <div className={"version"}>
+          <span
+            className="chevron"
+            style={{
+              transform: `rotate(${versionShow ? "180deg" : 0})`,
+            }}
+          />
           <p onClick={() => setVersionShow(true)}>Версии {activeVersion}</p>
           {versionShow && (
             <div className="hidden" onClick={() => setVersionShow(false)}>
