@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import HeaderButtons from "../HeaderButtons";
 
 const Header = ({ sendData }) => {
+  const [versionShow, setVersionShow] = useState(false);
+  const [activeVersion, setActiveVersion] = useState(7654321);
+
   return (
     <div>
       <HeaderButtons handleSave={sendData} />
@@ -15,6 +18,17 @@ const Header = ({ sendData }) => {
         <div className="categories">
           <div className="category">ФЗ 44</div>
           <div className="category">участие</div>
+        </div>
+
+        <div className={"version"}>
+          <p onClick={() => setVersionShow(true)}>Версии {activeVersion}</p>
+          {versionShow && (
+            <div className="hidden" onClick={() => setVersionShow(false)}>
+              <p onClick={() => setActiveVersion(7654320)}>Версии 7654320</p>
+              <p onClick={() => setActiveVersion(7654322)}>Версии 7654322</p>
+              <p onClick={() => setActiveVersion(7654323)}>Версии 7654323</p>
+            </div>
+          )}
         </div>
       </div>
     </div>

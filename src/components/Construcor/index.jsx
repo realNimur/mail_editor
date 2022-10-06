@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "../Header";
-import Tabs from "../Tabs";
 import Section from "../Section";
 import {
   DownElementOrderInArray,
@@ -39,23 +38,24 @@ const Constructor = ({
   };
 
   return (
-    <div className="app__right">
-      <div className="right-header">
+    <>
+      <div className={"app__left"}>
         <Header role={role} sendData={sendData} />
-        <Tabs />
       </div>
-      <Section
-        role={role}
-        sectionList={sectionList}
-        setSectionList={setSectionList}
-        handleDelete={handleDelete}
-        handleReturn={handleReturn}
-        upInOrder={upInOrder}
-        downInOrder={downInOrder}
-        addToTemplate={addToTemplate}
-      />
-      <Footer openModal={openModal} setSectionList={setSectionList} />
-    </div>
+      <div className="app__right">
+        <Section
+          role={role}
+          sectionList={sectionList}
+          setSectionList={setSectionList}
+          handleDelete={handleDelete}
+          handleReturn={handleReturn}
+          upInOrder={upInOrder}
+          downInOrder={downInOrder}
+          addToTemplate={addToTemplate}
+        />
+        <Footer openModal={openModal} setSectionList={setSectionList} />
+      </div>
+    </>
   );
 };
 

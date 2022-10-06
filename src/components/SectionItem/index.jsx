@@ -42,9 +42,7 @@ const SectionItem = ({
 
   return (
     <>
-      {!isCreateTemplatePage && (
-        <div className={styles.order}>{order + 1}.</div>
-      )}
+      {!isCreateTemplatePage && <div className={styles.order}>{order + 1}</div>}
       <div
         className={`${styles.section_item} ${
           hasDelete ? styles.section_item_delete : ""
