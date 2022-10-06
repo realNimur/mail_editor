@@ -9,6 +9,8 @@ const Section = ({
   downInOrder,
   handleDelete,
   handleReturn,
+  addToTemplate,
+  isCreateTemplatePage,
 }) => {
   const setInfoText = (text, currentElementId) => {
     const newState = [...sectionList];
@@ -38,6 +40,7 @@ const Section = ({
                 type={item.type}
                 role={role}
                 order={index}
+                isCreateTemplatePage={isCreateTemplatePage}
                 handleReturn={handleReturn}
                 status={item.status}
                 file={item.file}
@@ -49,6 +52,7 @@ const Section = ({
                 setApprove={() => setApprove(currentElementId)}
                 upInOrder={upInOrder}
                 downInOrder={downInOrder}
+                addToTemplate={addToTemplate}
               />
             );
           })}

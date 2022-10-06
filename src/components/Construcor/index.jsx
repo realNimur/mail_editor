@@ -8,7 +8,13 @@ import {
 } from "../../helpers/helpers";
 import Footer from "../Footer";
 
-const Constructor = ({ openModal, sectionList, setSectionList, role }) => {
+const Constructor = ({
+  openModal,
+  sectionList,
+  setSectionList,
+  role,
+  addToTemplate,
+}) => {
   const sendData = () => {
     console.log(JSON.stringify(sectionList));
     alert(JSON.stringify(sectionList));
@@ -46,6 +52,7 @@ const Constructor = ({ openModal, sectionList, setSectionList, role }) => {
         handleReturn={handleReturn}
         upInOrder={upInOrder}
         downInOrder={downInOrder}
+        addToTemplate={addToTemplate}
       />
       <Footer openModal={openModal} setSectionList={setSectionList} />
     </div>

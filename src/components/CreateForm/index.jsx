@@ -8,8 +8,9 @@ import {
 import EmptyBlock from "../EmptyBlock";
 import Params from "../Params";
 import styles from "./styles.module.scss";
+import Footer from "../Footer";
 
-const CreateTemplate = ({ templateList, setTemplateList }) => {
+const CreateForm = ({ openModal, templateList, setTemplateList }) => {
   const sendData = () => {
     console.log(JSON.stringify(templateList));
     alert(JSON.stringify(templateList));
@@ -25,9 +26,9 @@ const CreateTemplate = ({ templateList, setTemplateList }) => {
 
   return (
     <>
-      <HeaderButtons isCreateTemplatePage={true} handleSave={sendData} />
+      <HeaderButtons handleSave={sendData} />
       <div className={styles.wrapper}>
-        <p className={styles.title}>Создание элемента библиотеки</p>
+        <p className={styles.title}>Создание шаблона печатной формы</p>
         <div className={styles.template}>
           <p className={styles.template__name}>Название</p>
           <input
@@ -48,11 +49,11 @@ const CreateTemplate = ({ templateList, setTemplateList }) => {
           setSectionList={setTemplateList}
           downInOrder={downInOrder}
           upInOrder={upInOrder}
-          isCreateTemplatePage={true}
         />
+        <Footer openModal={openModal} setSectionList={setTemplateList} />
       </div>
     </>
   );
 };
 
-export default CreateTemplate;
+export default CreateForm;

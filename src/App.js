@@ -2,7 +2,7 @@ import "./App.scss";
 import NavigationButton from "./components/NavigationButton";
 import React, { useState } from "react";
 import Constructor from "./components/Construcor";
-import CreateTemplate from "./components/CreateTemplate";
+import CreateForm from "./components/CreateForm";
 import Library from "./components/Library";
 import {
   createBrowserRouter,
@@ -10,6 +10,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Login from "./components/Login";
+import CreateTemplate from "./components/CreateTemplate";
 
 export const Context = React.createContext(null);
 
@@ -61,6 +62,7 @@ function App() {
     },
   ]);
   const [templateList, setTemplateList] = useState([]);
+  const [templateFormList, setTemplateFormList] = useState([]);
 
   const setLoginManager = () => {
     setRole("manager");
@@ -86,11 +88,13 @@ function App() {
     ];
     if (window.location.pathname === "/") {
       setSectionList(newData);
-    } else if (window.location.pathname === "/create") {
-      setTemplateList(newData);
+    } else if (window.location.pathname === "/form/create") {
+      setTemplateFormList(newData);
     }
     setOpenLibrary(false);
   };
+
+  const addToTemplate = (item) => setTemplateList([item]);
 
   return (
     <Context.Provider value={{ role }}>
@@ -102,30 +106,47 @@ function App() {
           }}
         >
           <RouterProvider
-            router={createBrowserRouter([
-              {
-                path: "/",
-                element: (
-                  <Constructor
-                    role={role}
-                    openModal={openModal}
-                    setSectionList={setSectionList}
-                    sectionList={sectionList}
-                  />
-                ),
-              },
-              {
-                path: "/create",
-                element: (
-                  <CreateTemplate
-                    templateList={templateList}
-                    setTemplateList={setTemplateList}
-                    role={role}
-                    openModal={openModal}
-                  />
-                ),
-              },
-            ])}
+            router={createBrowserRouter(
+              [
+                {
+                  path: "/",
+                  element: (
+                    <Constructor
+                      role={role}
+                      openModal={openModal}
+                      setSectionList={setSectionList}
+                      sectionList={sectionList}
+                      addToTemplate={addToTemplate}
+                    />
+                  ),
+                },
+                {
+                  path: "/template/create",
+                  element: (
+                    <CreateTemplate
+                      templateList={templateList}
+                      setTemplateList={setTemplateList}
+                    />
+                  ),
+                },
+                {
+                  path: "/form/create",
+                  element: (
+                    <CreateForm
+                      templateList={templateFormList}
+                      setTemplateList={setTemplateFormList}
+                      role={role}
+                      openModal={openModal}
+                    />
+                  ),
+                },
+                {
+                  path: "*",
+                  element: <Navigate to="/" replace />,
+                },
+              ],
+              { basename: "/mail_editor" }
+            )}
           />
           <NavigationButton />
           <Library
@@ -136,21 +157,24 @@ function App() {
         </div>
       ) : (
         <RouterProvider
-          router={createBrowserRouter([
-            {
-              path: "/",
-              element: (
-                <Login
-                  setLoginManager={setLoginManager}
-                  setLoginClient={setLoginClient}
-                />
-              ),
-            },
-            {
-              path: "*",
-              element: <Navigate to="/" replace />,
-            },
-          ])}
+          router={createBrowserRouter(
+            [
+              {
+                path: "/",
+                element: (
+                  <Login
+                    setLoginManager={setLoginManager}
+                    setLoginClient={setLoginClient}
+                  />
+                ),
+              },
+              {
+                path: "*",
+                element: <Navigate to="/" replace />,
+              },
+            ],
+            { basename: "/mail_editor" }
+          )}
         />
       )}
     </Context.Provider>

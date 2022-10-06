@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const AddLibButton = ({ ...props }) => {
   return (
-    <Link to={`create`}>
+    <Link to={`template/create`}>
       <button type={"button"} className={styles.button} {...props}>
         <svg
           width="24"
