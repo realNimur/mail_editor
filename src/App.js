@@ -19,6 +19,15 @@ function App() {
   const [isOpenLibrary, setOpenLibrary] = useState(false);
   const [sectionList, setSectionList] = useState([
     {
+      id: 0,
+      type: "document",
+      file: {
+        name: "Шапка.docx",
+      },
+      isApprove: false,
+      hasDelete: false,
+    },
+    {
       id: 1,
       type: "text",
       status: "edit",
