@@ -43,6 +43,7 @@ const Editor = ({
   setInfoText,
   isEditMode,
   status,
+  order,
   hasDelete,
 }) => {
   const refEditor = useRef(null);
@@ -102,6 +103,7 @@ const Editor = ({
               "hashtag",
             ]}
           />
+          {order}
         </div>
         {!isEditMode && (
           <div className="format">

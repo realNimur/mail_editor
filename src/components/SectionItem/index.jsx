@@ -42,7 +42,6 @@ const SectionItem = ({
 
   return (
     <>
-      {!isCreateTemplatePage && <div className={styles.order}>{order + 1}</div>}
       <div
         className={`${styles.section_item} ${
           hasDelete ? styles.section_item_delete : ""
@@ -56,6 +55,13 @@ const SectionItem = ({
             hasDelete={hasDelete}
             setInfoText={setInfoText}
             isEditMode={isEditMode}
+            order={
+              <>
+                {!isCreateTemplatePage && (
+                  <div className={styles.order}>§{order + 1}</div>
+                )}
+              </>
+            }
           />
         )}
         {isDocumentsSection && file && (
@@ -65,6 +71,9 @@ const SectionItem = ({
                 <p className={styles.text}>{getFormatFile(file.name)}</p>
               </div>
               <p className={styles.name}>{file.name}</p>
+              {!isCreateTemplatePage && (
+                <div className={styles.order}>§{order + 1}</div>
+              )}
             </div>
             <div className="format">
               <p className="format__name">Файл</p>
