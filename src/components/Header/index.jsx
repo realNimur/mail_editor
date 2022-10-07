@@ -22,6 +22,7 @@ const Header = ({ sendData }) => {
 
         <div className={"version"}>
           <span
+            onClick={() => setVersionShow(true)}
             className="chevron"
             style={{
               transform: `rotate(${versionShow ? "180deg" : 0})`,

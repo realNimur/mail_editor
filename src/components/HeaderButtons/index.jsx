@@ -13,16 +13,14 @@ const HeaderButtons = ({
 
   return (
     <div className="right-header__buttons">
-      {isClient && <CustomButton text={"Отправить в банк"} />}
-      {isManager ? (
-        isCreateTemplatePage ? (
-          <CustomButton text={"Предпросмотр"} />
-        ) : (
-          <CustomButton text={"Отправить клиенту"} />
-        )
-      ) : null}
+      {!isCreateTemplatePage && (
+        <>
+          {isClient && <CustomButton text={"Отправить в банк"} />}
+          {isManager && <CustomButton text={"Отправить клиенту"} />}
+        </>
+      )}
       <CustomButton text={"Сохранить"} onClick={handleSave} />
-      <DownloadButton />
+      {!isCreateTemplatePage && <DownloadButton />}
     </div>
   );
 };

@@ -58,7 +58,7 @@ const SectionItem = ({
             order={
               <>
                 {!isCreateTemplatePage && (
-                  <div className={styles.order}>§{order + 1}</div>
+                  <div className={styles.order}>§{order}</div>
                 )}
               </>
             }
@@ -71,9 +71,6 @@ const SectionItem = ({
                 <p className={styles.text}>{getFormatFile(file.name)}</p>
               </div>
               <p className={styles.name}>{file.name}</p>
-              {!isCreateTemplatePage && (
-                <div className={styles.order}>§{order + 1}</div>
-              )}
             </div>
             <div className="format">
               <p className="format__name">Файл</p>

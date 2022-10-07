@@ -12,6 +12,8 @@ const Section = ({
   addToTemplate,
   isCreateTemplatePage,
 }) => {
+  let order = 0;
+
   const setInfoText = (text, currentElementId) => {
     const newState = [...sectionList];
     newState[currentElementId].text = text;
@@ -28,10 +30,12 @@ const Section = ({
     <div style={{ paddingRight: "8px" }}>
       {sectionList?.length > 0 && (
         <>
-          {sectionList.map((item, index) => {
+          {sectionList.map((item) => {
             const currentElementId = sectionList.findIndex(
               (section) => section.id === item.id
             );
+
+            if (item.type === "text" && !item.hasDelete) order = order + 1;
 
             return (
               <SectionItem
@@ -39,7 +43,7 @@ const Section = ({
                 key={item.id}
                 type={item.type}
                 role={role}
-                order={index}
+                order={order}
                 isCreateTemplatePage={isCreateTemplatePage}
                 handleReturn={handleReturn}
                 status={item.status}

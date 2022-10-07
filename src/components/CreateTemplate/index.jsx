@@ -26,7 +26,13 @@ const CreateTemplate = ({ templateList, setTemplateList }) => {
   return (
     <>
       <HeaderButtons isCreateTemplatePage={true} handleSave={sendData} />
-      <div className={styles.wrapper}>
+      <div
+        className={styles.wrapper}
+        style={{
+          paddingTop: "0",
+          paddingLeft: "18%",
+        }}
+      >
         <p className={styles.title}>Создание элемента библиотеки</p>
         <div className={styles.template}>
           <p className={styles.template__name}>Название</p>
